@@ -23,11 +23,12 @@ from rest_framework_swagger.views import get_swagger_view
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
 
 urlpatterns_api = [
+    path('api/', include(('students.urls_api', 'student'), namespace='student_api')),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
 ]
-schema_view = get_swagger_view(title='Backend API', patterns=urlpatterns_api)
+schema_view = get_swagger_view(title='Students API', patterns=urlpatterns_api)
 
 urlpatterns_root = i18n_patterns(
     # path('jet/model_lookup/', model_lookup_view, name='model_lookup'),

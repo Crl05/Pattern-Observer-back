@@ -1,11 +1,10 @@
 from django.urls import include, path
 from rest_framework import routers
 
-from configurations.viewset.city_viewset import CityViewSet
+from students.viewset.student_viewset import StudentViewSet
 
 router = routers.DefaultRouter()
-router.register(r'cities', CityViewSet, basename='cities')
-
+router.register(r'students', StudentViewSet, basename='students')
 urlpatterns = [
     path('', include(router.urls)),
 ]
